@@ -7,12 +7,6 @@ Este archivo contiene las preguntas que se van a realizar en el laboratorio.
 Utilice los archivos `tbl0.tsv`, `tbl1.tsv` y `tbl2.tsv`, para resolver las preguntas.
 
 """
-import pandas as pd
-
-tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
-tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
-tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
-
 
 def pregunta_01():
     """
@@ -22,7 +16,15 @@ def pregunta_01():
     40
 
     """
-    return
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    return tbl0._c0.count()
+
+  
 
 
 def pregunta_02():
@@ -33,7 +35,14 @@ def pregunta_02():
     4
 
     """
-    return
+
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    return len(list(tbl0.columns))
 
 
 def pregunta_03():
@@ -50,7 +59,15 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return
+
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+
+    return tbl0["_c1"].value_counts()
 
 
 def pregunta_04():
@@ -65,7 +82,16 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    return
+
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    tbl0_p4=tbl0.groupby("_c1")["_c2"].mean()
+
+    return tbl0_p4
 
 
 def pregunta_05():
@@ -82,7 +108,15 @@ def pregunta_05():
     E    9
     Name: _c2, dtype: int64
     """
-    return
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    tbl_p5=tbl0.groupby("_c1")["_c2"].max()
+
+    return tbl_p5
 
 
 def pregunta_06():
@@ -94,7 +128,18 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    lista_p6=list(tbl1["_c4"].unique())
+    lista_p6=[x.upper()for x in lista_p6]
+    lista_p6=sorted(lista_p6)
+    
+    return lista_p6
 
 
 def pregunta_07():
@@ -110,7 +155,16 @@ def pregunta_07():
     E    67
     Name: _c2, dtype: int64
     """
-    return
+
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    tbl_p7=tbl0.groupby("_c1")["_c2"].sum()
+
+    return tbl_p7
 
 
 def pregunta_08():
@@ -128,7 +182,17 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    return
+
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    tbl_p8=tbl0.copy()
+    tbl_p8["suma"]=tbl_p8["_c0"]+tbl_p8["_c2"]
+    
+    return tbl_p8
 
 
 def pregunta_09():
@@ -146,7 +210,18 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    return
+
+
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    tbl_p9=tbl0.copy()
+    tbl_p9["year"]=tbl_p9["_c3"].map(lambda x: x[0:4])
+    
+    return tbl_p9
 
 
 def pregunta_10():
@@ -163,7 +238,25 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    return
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    def reduceGroup(group):
+        return group.aggregate(reduceSeries)
+
+    def reduceSeries(groupSeries):
+        return groupSeries.to_list()
+
+    def transformSeries(x):
+        return ':'.join(map(str,sorted(x)))
+
+    grouped = tbl0[['_c1', '_c2']].groupby('_c1').aggregate(reduceGroup)
+    grouped['_c2'] = grouped ['_c2'].apply(transformSeries)
+    return grouped
+
 
 
 def pregunta_11():
@@ -182,7 +275,16 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    tbl1
+    tbl1=tbl1.sort_values("_c4")
+    
+    return tbl1.groupby("_c0",as_index=False).agg(",".join)
 
 
 def pregunta_12():
@@ -200,7 +302,18 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    tbl2=tbl2.sort_values("_c5a")
+    tbl2["_c5b"]=tbl2["_c5b"].astype(str)
+    tbl2=tbl2.groupby("_c0",as_index=False).agg(",".join)
+    
+
+    return tbl2
 
 
 def pregunta_13():
@@ -217,4 +330,14 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
-    return
+
+    import pandas as pd
+
+    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+
+    grouped_t2 = tbl2[['_c0','_c5b']].groupby('_c0').sum()
+    grouped_t2.reset_index(inplace=True)
+    merged_t0_t2 = tbl0[['_c0', '_c1']].merge(grouped_t2,on='_c0')[['_c1','_c5b']]
+    return merged_t0_t2.groupby('_c1').sum()['_c5b']
