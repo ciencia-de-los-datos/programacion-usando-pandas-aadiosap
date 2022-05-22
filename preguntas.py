@@ -18,9 +18,9 @@ def pregunta_01():
     """
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     return tbl0._c0.count()
 
@@ -38,9 +38,9 @@ def pregunta_02():
 
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     return len(list(tbl0.columns))
 
@@ -62,9 +62,9 @@ def pregunta_03():
 
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
 
     return tbl0["_c1"].value_counts()
@@ -85,9 +85,9 @@ def pregunta_04():
 
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     tbl0_p4=tbl0.groupby("_c1")["_c2"].mean()
 
@@ -110,9 +110,9 @@ def pregunta_05():
     """
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     tbl_p5=tbl0.groupby("_c1")["_c2"].max()
 
@@ -131,9 +131,9 @@ def pregunta_06():
 
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     lista_p6=list(tbl1["_c4"].unique())
     lista_p6=[x.upper()for x in lista_p6]
@@ -158,9 +158,9 @@ def pregunta_07():
 
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     tbl_p7=tbl0.groupby("_c1")["_c2"].sum()
 
@@ -185,9 +185,9 @@ def pregunta_08():
 
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     tbl_p8=tbl0.copy()
     tbl_p8["suma"]=tbl_p8["_c0"]+tbl_p8["_c2"]
@@ -214,9 +214,9 @@ def pregunta_09():
 
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     tbl_p9=tbl0.copy()
     tbl_p9["year"]=tbl_p9["_c3"].map(lambda x: x[0:4])
@@ -240,9 +240,9 @@ def pregunta_10():
     """
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     def reduceGroup(group):
         return group.aggregate(reduceSeries)
@@ -277,9 +277,9 @@ def pregunta_11():
     """
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     tbl1
     tbl1=tbl1.sort_values("_c4")
@@ -304,9 +304,9 @@ def pregunta_12():
     """
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     tbl2=tbl2.sort_values("_c5a")
     tbl2["_c5b"]=tbl2["_c5b"].astype(str)
@@ -333,9 +333,9 @@ def pregunta_13():
 
     import pandas as pd
 
-    tbl0 = pd.read_csv("/content/tbl0.tsv", sep="\t")
-    tbl1 = pd.read_csv("/content/tbl1.tsv", sep="\t")
-    tbl2 = pd.read_csv("/content/tbl2.tsv", sep="\t")
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+    tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
+    tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
     grouped_t2 = tbl2[['_c0','_c5b']].groupby('_c0').sum()
     grouped_t2.reset_index(inplace=True)
