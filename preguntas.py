@@ -67,7 +67,7 @@ def pregunta_03():
     tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
 
-    return tbl0["_c1"].value_counts()
+    return tbl0['_c1'].value_counts().sort_index()
 
 
 def pregunta_04():
@@ -308,13 +308,17 @@ def pregunta_12():
     tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
     tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
-    tbl2=tbl2.sort_values("_c5a")
-    tbl2["_c5b"]=tbl2["_c5b"].astype(str)
-    tbl2=tbl2.groupby("_c0",as_index=False).agg(",".join)
+    mixed_t2 = tbl2.copy()
+    mixed_t2 = mixed_t2.sort_values('_c5a')
+    mixed_t2['_c5'] = tbl2['_c5a'].map(str) +':'+ tbl2['_c5b'].map(str)
+    grouped_t2=mixed_t2[['_c0','_c5']].groupby('_c0')
+
+    def aggregate(x):
+        return ','.join(x)
+    concatenated_t2 = grouped_t2.aggregate(aggregate)
+    concatenated_t2.reset_index(inplace=True)
+    return concatenated_t2
     
-
-    return tbl2
-
 
 def pregunta_13():
     """
